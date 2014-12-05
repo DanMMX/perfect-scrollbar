@@ -1,12 +1,13 @@
 /* Copyright (c) 2012, 2014 Hyunje Alex Jun and other contributors
  * Licensed under the MIT License
+ * Forked from https://github.com/DanMMX/perfect-scrollbar.git
  */
 (function (factory) {
   'use strict';
 
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['jquery'], factory);
+    define(['jQuery'], factory);
   } else if (typeof exports === 'object') {
     // Node/CommonJS
     factory(require('jquery'));
@@ -19,7 +20,11 @@
 
   function getInt(x) {
     if (typeof x === 'string') {
-      return parseInt(x, 10);
+      if (x.length === 0) {
+        return 0;
+      } else {
+        return parseInt(x, 10);
+      }
     } else {
       return ~~x;
     }
