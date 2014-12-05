@@ -30,7 +30,6 @@
 }
 
 @mixin scrollbar-rail-hover {
-  background-color: #eee;
   @include opacity(0.9);
 }
 
@@ -75,11 +74,13 @@
     @include scrollbar-rail-default;
     right: 3px; /* there must be 'right' for ps-scrollbar-y-rail */
     width: 8px;
+    height: 10px;
 
     >.ps-scrollbar-y {
       @include scrollbar-default;
       right: 0; /* there must be 'right' for ps-scrollbar-y */
       width: 8px;
+      height: 10px;
     }
 
     @include in-scrolling;
@@ -107,5 +108,26 @@
         @include scrollbar-hover;
       }
     }
+  }
+}
+
+.always-visible.ps-container > .ps-scrollbar-x-rail,
+.always-visible.ps-container > .ps-scrollbar-y-rail {
+  opacity: 1;
+  height: 400px;
+  margin: 30px 40px;
+  background-color: #E4E4E4;
+  width: 2px;
+  border-radius: 2px;
+  max-height: 400px;
+  @include border-radius(2px);
+
+  .ps-scrollbar-y {
+    border: 5px solid #E4E4E4;
+    background-color: #014F9D;
+    width: 23px;
+    left: -10px;
+    border-radius: 14px;
+    @include border-radius(14px);
   }
 }
